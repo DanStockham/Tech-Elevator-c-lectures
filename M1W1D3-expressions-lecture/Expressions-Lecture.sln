@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BooleanExpressions", "BooleanExpressions\BooleanExpressions.csproj", "{87CF0D8A-5655-416B-AC43-0AF58563C38B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConditionalExpressions", "ConditionalExpressions\ConditionalExpressions.csproj", "{9525B386-6311-4892-A581-9984664D7F10}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{87CF0D8A-5655-416B-AC43-0AF58563C38B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87CF0D8A-5655-416B-AC43-0AF58563C38B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87CF0D8A-5655-416B-AC43-0AF58563C38B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87CF0D8A-5655-416B-AC43-0AF58563C38B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9525B386-6311-4892-A581-9984664D7F10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9525B386-6311-4892-A581-9984664D7F10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9525B386-6311-4892-A581-9984664D7F10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9525B386-6311-4892-A581-9984664D7F10}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
