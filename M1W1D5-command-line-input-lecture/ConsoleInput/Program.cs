@@ -8,7 +8,7 @@ namespace ConsoleInput
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             /////////////////////////
             //1. Ask for a first name

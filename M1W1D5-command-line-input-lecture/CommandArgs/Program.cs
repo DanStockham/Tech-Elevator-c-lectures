@@ -13,7 +13,7 @@ namespace CommandArgs
             //1. Printing out each of the arg values
             for (int i = 0; i < args.Length; i++)
             {                
-                Console.WriteLine($"Argument i is {args[i]}");
+                Console.WriteLine($"Argument {i} is {args[i]}");
             }
 
             //2. Print the correct command according to the arguments provided                        
@@ -42,7 +42,7 @@ namespace CommandArgs
                         Console.WriteLine(@"  $$\                         $$\                       $$\                               $$\                         ");
                         Console.WriteLine(@"  $$ |                        $$ |                      $$ |                              $$ |                        ");
                         Console.WriteLine(@"$$$$$$\    $$$$$$\   $$$$$$$\ $$$$$$$\         $$$$$$\  $$ | $$$$$$\ $$\    $$\ $$$$$$\ $$$$$$\    $$$$$$\   $$$$$$\  ");
-                        Console.WriteLine(@"\_$$  _|  $$  __$$\ $$  _____|$$  __$$\       $$  __$$\ $$ |$$  __$$\\$$\  $$  |\____$$\\_$$  _|  $$  __$$\ $$  __$$\ ");
+                        Console.WriteLine(@"\n_$$  _|  $$  __$$\ $$  _____|$$  __$$\       $$  __$$\ $$ |$$  __$$\\$$\  $$  |\____$$\\_$$  _|  $$  __$$\ $$  __$$\ ");
                         Console.WriteLine(@"  $$ |    $$$$$$$$ |$$ /      $$ |  $$ |      $$$$$$$$ |$$ |$$$$$$$$ |\$$\$$  / $$$$$$$ | $$ |    $$ /  $$ |$$ |  \__|");
                         Console.WriteLine(@"  $$ |$$\ $$   ____|$$ |      $$ |  $$ |      $$   ____|$$ |$$   ____| \$$$  / $$  __$$ | $$ |$$\ $$ |  $$ |$$ |      ");
                         Console.WriteLine(@"  \$$$$  |\$$$$$$$\ \$$$$$$$\ $$ |  $$ |      \$$$$$$$\ $$ |\$$$$$$$\   \$  /  \$$$$$$$ | \$$$$  |\$$$$$$  |$$ |      ");
@@ -75,11 +75,13 @@ namespace CommandArgs
                             Console.BackgroundColor = ConsoleColor.Black;
                         }
                         Console.Clear();
-                        break;                    
+                        break;
+                    default:
+                        break;
                 }
             }
-                         
-            
+
+            Console.ReadLine();
             
         }
     }

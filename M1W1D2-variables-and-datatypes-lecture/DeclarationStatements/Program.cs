@@ -98,7 +98,10 @@ namespace DeclarationStatements
             remainder = 8 % 4;
             Console.WriteLine("The remainder of dividing 8 by 4 is " + remainder);
 
-
+            for (int z = 0; z< 12; z
+                ++)
+            {
+            }
 
             // **********************
             // TRUNCATION AND CASTING
@@ -129,6 +132,8 @@ namespace DeclarationStatements
             Console.WriteLine("Hello!\n\nGoodbye!");  // The escape character for newline is \n
 
             Console.WriteLine("Hello\tGoodbye"); // The escape character for tab is \t            
+
+            Console.ReadLine();
         }
     }
 }
