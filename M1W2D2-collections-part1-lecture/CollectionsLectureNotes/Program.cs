@@ -150,7 +150,7 @@ namespace CollectionsLectureNotes
             ///////////////////////////
             // ITERATING THROUGH A HASH SET
             ///////////////////////////
-            foreach (var language in languages)
+            foreach (string language in languages)
             {
                 Console.WriteLine(language);
             }
@@ -214,6 +214,26 @@ namespace CollectionsLectureNotes
                 string previousPage = browserStack.Pop();
                 Console.WriteLine("PREVIOUS PAGE: " + previousPage);
             }
+
+
+            //////////////////////
+            // BOXING AND UNBOXING
+            //////////////////////
+
+            int myValue = 7;
+            Console.WriteLine(myValue);
+            Console.WriteLine(myValue.GetType());
+
+            object objectValue = (object)myValue;
+            Console.WriteLine(objectValue);
+            Console.WriteLine(objectValue.GetType());
+
+            //int result = objectValue + 7; //  can't compile
+
+            int anotherInt = (int)objectValue;
+            Console.WriteLine(anotherInt);
+            Console.WriteLine(anotherInt.GetType());
+
 
         }
     }
