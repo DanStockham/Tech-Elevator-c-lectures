@@ -50,17 +50,19 @@ namespace StringsDemo
             // Accessing individual characters in a string
             Console.WriteLine();
             char firstCharacter = shortSentence[0];
-            Console.WriteLine("First character is " + firstCharacter);
+            Console.WriteLine("First character is " + shortSentence[0]);
             
             Console.WriteLine("Second character is " + shortSentence[1]);
             
-            Console.WriteLine("Last character is " + shortSentence[shortSentence.Length - 1]);
+            Console.WriteLine("Last character is " + 
+                shortSentence[shortSentence.Length - 1]);
 
 
             // Checking for a substring
             Console.WriteLine();
             bool containsCode = shortSentence.Contains("code");
-            Console.WriteLine("Short sentence contains code --> " + containsCode);
+            Console.WriteLine("Short sentence contains code --> " + 
+                containsCode);
 
             containsCode = longSentence.Contains("code");
             Console.WriteLine($"Long sentence contains code " + containsCode);
@@ -169,6 +171,7 @@ namespace StringsDemo
             Console.Write("RefType2 ");
             Console.WriteLine(String.Join(", ", refType2));
 
+            Console.ReadLine();
         }
     }
 }
