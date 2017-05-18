@@ -16,6 +16,7 @@ namespace LectureNotes.Classes
         private string accountNumber;
         private string accountHolder;
         private decimal balance;
+        private bool isSavings;
 
 
         public BankAccount(string accountNumber)
@@ -50,6 +51,23 @@ namespace LectureNotes.Classes
         public decimal Balance
         {
             get { return this.balance; }
+        }
+
+        public bool IsSavings
+        {
+            get
+            {
+                return isSavings;
+            }
+            set
+            {
+                isSavings = value;
+            }
+        }
+
+        public bool IsChecking
+        {
+            get; set; 
         }
 
         /// <summary>
