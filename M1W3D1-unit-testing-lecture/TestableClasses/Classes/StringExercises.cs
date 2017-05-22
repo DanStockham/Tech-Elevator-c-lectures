@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace TestableClasses.Classes
 {
+ 
     public class StringExercises
     {
-
-
 
         /*
          Given two strings, a and b, return the result of putting them together in the order abba, 

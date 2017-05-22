@@ -1,27 +1,83 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TestableClasses.Classes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 using System.Text;
-using System.Threading.Tasks;
+using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TestableClasses.Classes;
 
-namespace TestableClasses.Classes.Tests
+namespace TestableClassesTests.Classes
 {
-    [TestClass()]
+    /// <summary>
+    /// Summary description for StringExercisesTests2
+    /// </summary>
+    /// 
+
+    //Assert
+    //.AreEqual() - compares expected and actual value for equality
+    //.AreSame() - verifies two object variables refer to same object
+    //.AreNotSame() - verifies two object variables refer to different objects
+    //.Fail() - fails without checking conditions
+    //.IsFalse()
+    //.IsTrue()
+    //.IsNotNull()
+    //.IsNull()
+
+
+    [TestClass]
     public class StringExercisesTests
     {
-        //Assert
-        //.AreEqual() - compares expected and actual value for equality
-        //.AreSame() - verifies two object variables refer to same object
-        //.AreNotSame() - verifies two object variables refer to different objects
-        //.Fail() - fails without checking conditions
-        //.IsFalse()
-        //.IsTrue()
-        //.IsNotNull()
-        //.IsNull()
+        public StringExercisesTests()
+        {
+            //
+            // TODO: Add constructor logic here
+            //
+        }
 
+        private TestContext testContextInstance;
 
-        
+        /// <summary>
+        ///Gets or sets the test context which provides
+        ///information about and functionality for the current test run.
+        ///</summary>
+        public TestContext TestContext
+        {
+            get
+            {
+                return testContextInstance;
+            }
+            set
+            {
+                testContextInstance = value;
+            }
+        }
+
+        #region Additional test attributes
+        //
+        // You can use the following additional attributes as you write your tests:
+        //
+        // Use ClassInitialize to run code before running the first test in the class
+        // [ClassInitialize()]
+        // public static void MyClassInitialize(TestContext testContext) { }
+        //
+        // Use ClassCleanup to run code after all tests in a class have run
+        // [ClassCleanup()]
+        // public static void MyClassCleanup() { }
+        //
+        // Use TestInitialize to run code before running each test 
+        // [TestInitialize()]
+        // public void MyTestInitialize() { }
+        //
+        // Use TestCleanup to run code after each test has run
+        // [TestCleanup()]
+        // public void MyTestCleanup() { }
+        //
+        #endregion
+
+        [TestMethod]
+        public void MakeAbbaTest()
+        {
+            StringExercises thisStringExercise = new StringExercises();
+            Assert.AreEqual(thisStringExercise.MakeAbba("Hi", "Bye"), "HiByeByeHi");
+
+        }
     }
 }
