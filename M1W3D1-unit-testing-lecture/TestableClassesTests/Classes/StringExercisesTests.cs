@@ -76,7 +76,7 @@ namespace TestableClassesTests.Classes
         public void MakeAbbaTest()
         {
             StringExercises thisStringExercise = new StringExercises();
-            Assert.AreEqual(thisStringExercise.MakeAbba("Hi", "Bye"), "HiByeByeHi");
+            Assert.AreEqual("HiByeBye",thisStringExercise.MakeAbba("Hi", "Bye"));
 
         }
     }

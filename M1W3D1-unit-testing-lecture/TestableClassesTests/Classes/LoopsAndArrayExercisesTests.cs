@@ -78,7 +78,9 @@ namespace TestableClassesTests.Classes
             int[] a = { 1, 2, 3 };
             int[] b = { 4, 5, 6 };
             int[] c = { 2, 5 };
-            CollectionAssert.AreEquivalent(myExercises.MiddleWay(a, b), c);
+            CollectionAssert.AreEquivalent(c, myExercises.MiddleWay(a, b));
+            CollectionAssert.AreEqual(new int[] { 2, 5 }, 
+                myExercises.MiddleWay(new int[] { 1, 2, 3 },  new int[] { 4, 5, 6 }));
         }
     }
 }
