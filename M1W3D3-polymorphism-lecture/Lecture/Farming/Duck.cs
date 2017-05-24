@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lecture.Farming
 {
-    public class Duck
+    public class Duck : IFarmAnimal
     {
         public string NameOfAnimal
         {

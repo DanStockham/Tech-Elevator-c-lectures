@@ -46,6 +46,7 @@
     <Compile Include="Farming\Chicken.cs" />
     <Compile Include="Farming\Cow.cs" />
     <Compile Include="Farming\Duck.cs" />
+    <Compile Include="Farming\IFarmAnimal.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stubs\ISkeletonInterface.cs" />

@@ -57,11 +57,5 @@ namespace PaintCalculator.Shapes
                 return false;
             }
         }
-
-
-
-
-
-
     }
 }

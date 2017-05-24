@@ -22,29 +22,24 @@ namespace Lecture
             // any class that implements the IFarmAnimal interface is allowed 
             // to be in the list.
 
-            Chicken chicken = new Chicken();
-            Cow cow = new Cow();
-            Duck duck = new Duck();
+            List<IFarmAnimal> theseAmimals = new List<IFarmAnimal>();
+
+            theseAmimals.Add(new Chicken());
+            theseAmimals.Add(new  Cow());
+            theseAmimals.Add(new  Duck());
 
             Console.WriteLine("Old MacDonald had a farm ee ay ee ay oh");
             
-            Console.WriteLine("And on his farm there was a " + chicken.NameOfAnimal + " ee ay ee ay oh");
-            Console.WriteLine("With a " + chicken.MakeSoundTwice() + " here and a " + chicken.MakeSoundTwice() + " there");
-            Console.WriteLine("Here a " + chicken.MakeSoundOnce() + ", there a " + chicken.MakeSoundOnce() + " everywhere a " + chicken.MakeSoundTwice());
-            Console.WriteLine("Old Macdonald had a farm, ee ay ee ay oh");
-            Console.WriteLine();
+         foreach (IFarmAnimal thisAnimal in theseAmimals)
+            {
+                Console.WriteLine("And on his farm there was a " + thisAnimal.NameOfAnimal + " ee ay ee ay oh");
+                Console.WriteLine("With a " + thisAnimal.MakeSoundTwice() + " here and a " + thisAnimal.MakeSoundTwice() + " there");
+                Console.WriteLine("Here a " + thisAnimal.MakeSoundOnce() + ", there a " + thisAnimal.MakeSoundOnce() + " everywhere a " + thisAnimal.MakeSoundTwice());
+                Console.WriteLine("Old Macdonald had a farm, ee ay ee ay oh");
+                Console.WriteLine();
+            }
 
-            Console.WriteLine("And on his farm there was a " + cow.NameOfAnimal + " ee ay ee ay oh");
-            Console.WriteLine("With a " + cow.MakeSoundTwice() + " here and a " + cow.MakeSoundTwice() + " there");
-            Console.WriteLine("Here a " + cow.MakeSoundOnce() + ", there a " + cow.MakeSoundOnce() + " everywhere a " + cow.MakeSoundTwice());
-            Console.WriteLine("Old Macdonald had a farm, ee ay ee ay oh");
-            Console.WriteLine();
 
-            Console.WriteLine("And on his farm there was a " + duck.NameOfAnimal + " ee ay ee ay oh");
-            Console.WriteLine("With a " + duck.MakeSoundTwice() + " here and a " + duck.MakeSoundTwice() + " there");
-            Console.WriteLine("Here a " + duck.MakeSoundOnce() + ", there a " + duck.MakeSoundOnce() + " everywhere a " + duck.MakeSoundTwice());
-            Console.WriteLine("Old Macdonald had a farm, ee ay ee ay oh");
-            Console.WriteLine();
 
             // ----- THIS IS GETTING REPETITIVE! 
             // We can do better
