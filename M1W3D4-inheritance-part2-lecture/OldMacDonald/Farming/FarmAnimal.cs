@@ -6,15 +6,11 @@ using System.Threading.Tasks;
 
 namespace OldMacDonald.Farming
 {
-    public class FarmAnimal : ISingable
-    {        
-        public virtual string MakeSoundOnce() //<-- mark this virtual so that subclasses override it
-        {
-            return "";
-        }
-        public virtual string MakeSoundTwice() //<-- the challenge though is what if subclasses dont override it
-        {
-            return "";
-        }        
+    public abstract class FarmAnimal : ISingable
+    {
+        public abstract string MakeSoundOnce(); //<-- mark this virtual so that subclasses override it
+
+        public abstract string MakeSoundTwice(); //<-- the challenge though is what if subclasses dont override it
+      
     }
 }
