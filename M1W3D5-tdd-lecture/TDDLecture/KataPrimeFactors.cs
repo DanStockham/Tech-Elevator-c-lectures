@@ -8,7 +8,8 @@ namespace TDDLecture
 {
     //Factorize a positive integer number into its prime factors.
 
-    //Use the TDD approach to write tests that call a single method `Factorize()`. Given a positive integer input n, return its prime factors.
+    //Use the TDD approach to write tests that call a single method `Factorize()`. Given a positive integer input n, 
+    //return its prime factors.
 
     //1 is always omitted from the result set.
     //2 -> returns[2]
@@ -24,6 +25,26 @@ namespace TDDLecture
     //199 -> returns [199]
     public class KataPrimeFactors
     {
+        public List<int> Factorize(int input)
+        {
+            List<int> result = new List<int>();
+            
+            while(input % 2 == 0)
+            {
+                result.Add(2);
+                input /= 2;
+            }
 
+            for(int i = 3; i <= input; i+=2)
+            {
+                while (input % i == 0)
+                {
+                    result.Add(i);
+                    input /= i;
+                }
+
+            }
+            return result;
+        }
     }
 }
