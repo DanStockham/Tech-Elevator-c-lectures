@@ -1,0 +1,27 @@
+a {
+  margin: 10px;
+  padding: 10px;
+  background-color: #eee;
+}
+p {
+  width: 350px;
+  background-color: #eee;
+}
+.block {
+  width: 350px;
+  display: block;
+}
+.inline {
+  display: inline;
+}
+.inline-block {
+  width 180px; margin: 10px; padding: 20px;
+  background: #eee;
+  display: inline-block;
+}
+.inline-block-vertical-align-top {
+  width 180px; margin: 10px; padding: 20px;
+  background: #eee;
+  display: inline-block;
+  vertical-align: top;
+}

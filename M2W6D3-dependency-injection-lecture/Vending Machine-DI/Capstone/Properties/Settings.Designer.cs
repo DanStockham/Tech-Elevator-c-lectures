@@ -25,7 +25,7 @@ namespace Capstone.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("database")]
+        [global::System.Configuration.DefaultSettingValueAttribute("file")]
         public string DataSource {
             get {
                 return ((string)(this["DataSource"]));
