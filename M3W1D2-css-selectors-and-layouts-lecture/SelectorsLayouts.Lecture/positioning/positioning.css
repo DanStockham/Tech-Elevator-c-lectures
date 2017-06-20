@@ -1,0 +1,45 @@
+html {
+  font: 96px Courier;
+  color: white;
+}
+p {
+  font: 36px Helvetica;
+  color: black;
+}
+.container {
+  background-color: black;
+  width: 375px;
+}
+.box {
+  padding: 50px;
+  padding-left: 100px;
+  width: 100px;
+}
+#box_1_1, #box_2_1, #box_3_1 {
+  background: #ee3e64;
+}
+#box_1_2, #box_2_2, #box_3_2, #fixed {
+  background: #44accf;
+}
+#box_1_3, #box_2_3, #box_3_3 {
+  background: #b7d84b;
+}
+#box_2_2 {
+  position: relative;
+  bottom: 40px;
+  left: 60px;
+}
+#container_3 {
+  position: relative;
+}
+#box_3_2 {
+  position: absolute;;
+  top: 100px;
+  left: 300px;
+}
+#fixed {
+  position: fixed;
+  top: 0;
+  right: 0;
+  font-size: 36px;
+}
