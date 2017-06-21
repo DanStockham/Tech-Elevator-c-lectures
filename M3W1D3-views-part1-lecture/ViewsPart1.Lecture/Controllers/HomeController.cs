@@ -15,9 +15,10 @@ namespace ViewsPart1.Lecture.Controllers
     {
         // GET: Home/Index
         // GET: Home/
+        // GET: <no path>
         public string Index()
         {
-            return "Hello World!";
+            return "Hello World,class!";
         }              
     
         // GET: Home/Welcome
