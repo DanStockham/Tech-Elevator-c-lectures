@@ -1,0 +1,28 @@
+﻿
+@{    
+    Layout = null;  //<-- ignore this for now, it is used to create reusable site layouts
+
+    // Get "name" from the Request Url (e.g. localhost/Home/HelloInternet?name=Tech Elevator Student)
+    string name = Request.QueryString["name"];    
+}
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Hello Internet</title>
+</head>
+<body>
+    @if (String.IsNullOrEmpty(name))
+    {
+        <h1>Hello, Internet!</h1>
+    }
+    else
+    {
+        <h1>Hello, @name!</h1>
+    }
+</body>
+</html>
