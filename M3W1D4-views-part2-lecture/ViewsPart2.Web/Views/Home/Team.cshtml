@@ -1,0 +1,51 @@
+﻿@*
+    Our Model for this View is a List<Person>    
+*@
+
+@model List<ViewsPart2.Web.Models.Person>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="~/Content/styles.css" />
+</head>
+<body>
+    <header>
+        <h1>ASP.NET MVC Exercises - Views Part 2: Models</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">Link 1</a></li>
+            <li><a href="#">Link 2</a></li>
+        </ul>
+
+    </nav>
+
+    <section id="main-content">
+
+        <h2 class="center">List of Team Members</h2>
+
+        <table class="center">
+            <tr>
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>Hometown</td>
+            </tr>
+
+            @* Loop through each entry in the Model (List<Person>) and create a table row for each person *@
+            @foreach(ViewsPart2.Web.Models.Person person in Model)
+            {
+                <tr>
+                    <td>@person.FirstName</td>
+                    <td>@person.LastName</td>
+                    <td>@person.Hometown</td>
+                </tr>
+            }
+        </table>
+
+    </section>
+</body>
+</html>

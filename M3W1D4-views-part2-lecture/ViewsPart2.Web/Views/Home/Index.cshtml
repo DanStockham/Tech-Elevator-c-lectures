@@ -1,0 +1,54 @@
+﻿@*
+    Our Model for this View is a Person 
+    It represents an instance of the Person class
+*@
+
+@using ViewsPart2.Web.Models;   @* <-- namespace that the class is defined in *@
+
+@model Person
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="~/Content/styles.css" />
+</head>
+<body>
+
+    <header>
+        <h1>ASP.NET MVC Exercises - Views Part 2: Models</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">Link 1</a></li>
+            <li><a href="#">Link 2</a></li>
+        </ul>
+    </nav>
+    
+    <section id="main-content">
+
+        @* 
+            Here we will create HTML elements that rely on the Model our View is bound to
+            "Model" is a reserved Property accessible to the View
+        *@
+
+        <h2 class="center">@Model.FirstName @Model.LastName</h2>
+        <p class="center">from @Model.Hometown</p>
+
+        <p>
+            Interests:
+            <ul>
+                @foreach(string interest in Model.Interests)
+                {
+                    <li>@interest</li>
+                }
+            </ul>
+        
+        </p>
+
+
+    </section>
+</body>
+</html>
