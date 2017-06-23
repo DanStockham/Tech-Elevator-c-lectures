@@ -1,0 +1,32 @@
+﻿
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="~/Content/styles.css" />
+</head>
+<body>
+    <header>
+        <h1>ASP.NET MVC Exercises - Views Part 3: Models</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>@Html.ActionLink("Luke", "Index", "Home", new { id = "Luke" }, null)</li>
+            <li>@Html.ActionLink("Anakin", "Index", "Home", new { id = "Anakin" }, null)</li>
+            <li>@Html.ActionLink("Rey", "Index", "Home", new { id = "Rey" }, null)</li>
+        </ul>
+    </nav>
+
+    <section id="main-content">
+
+        @*
+            Placeholder to load in the content of the individual page view.                
+        *@
+        @RenderBody()
+
+    </section>
+</body>
+</html>

@@ -1,0 +1,29 @@
+﻿@*
+    Our Model for this View is a List<Person>
+*@
+
+
+@model List<ViewsPart3.Web.Models.Person>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="center">List of Colors</h2>
+
+<table class="center">
+    <tr>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Hometown</td>
+    </tr>
+
+    @* Loop through each entry in the Model (List<Person>) and create a table row for each person *@
+    @foreach (var person in Model)
+    {
+        <tr>
+            <td>@person.FirstName</td>
+            <td>@person.LastName</td>
+            <td>@person.Hometown</td>
+        </tr>
+    }
+</table>
