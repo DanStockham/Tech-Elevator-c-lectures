@@ -1,0 +1,35 @@
+﻿@*
+    Our Model for this View is a Person
+    It represents an instance of the Person class
+*@
+
+@using ViewsPart3.Web.Models;
+@model Person
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";   //<-- Our Shared Layout file is located at this folder path.
+}
+
+
+
+@*
+    Here we will create HTML elements that rely on the Model.
+    Our View is bound to "Model" which is a Property accessible to the View
+*@
+
+<h2 class="center">@Model.FirstName @Model.LastName</h2>
+<p class="center">from @Model.Hometown</p>
+
+
+<table class="center">
+    <tr>
+        <td>Interests</td>
+    </tr>
+    @foreach (string interest in Model.Interests)
+    {
+        <tr>
+            <td>@interest</td>
+        </tr>
+    }
+</table>
+
+</p>

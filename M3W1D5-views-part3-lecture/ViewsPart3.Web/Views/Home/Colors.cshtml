@@ -1,0 +1,24 @@
+﻿@*
+    Our Model for this View is a List of Strings (e.g. List<string>)
+    It represents a list of strings that are color values
+*@
+
+@model List<string>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";   //<-- Our Shared Layout file is located at this folder path.
+}
+
+
+<h2 class="center">List of Colors</h2>
+<table class="center">
+    <tr>
+        <td>Colors</td>
+    </tr>
+    @* Model refers to a List<string> *@
+    @foreach (string color in Model)
+    {
+        <tr style="background-color: @color; opacity: 0.6">
+            <td style="color:#FFF">@color</td>
+        </tr>
+    }
+</table>
