@@ -12,7 +12,9 @@
 </head>
 <body>
     <div> 
-        @Html.ActionLink("Link to Colors", "Colors")
+        @Html.ActionLink("A", "Color") <br />
+        @Html.ActionLink("B", "Color", "Home") <br />
+        @Html.ActionLink("C", "Index", "Home", new { id = "Luke" },null) <br />
     </div>
 </body>
 </html>
