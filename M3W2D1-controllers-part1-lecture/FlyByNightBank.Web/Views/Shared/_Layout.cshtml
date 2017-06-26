@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Fly By Night Bank - @ViewBag.Title</title>
+    <link rel="stylesheet" href="~/Content/stylesheet.css" />
+</head>
+<body>
+    <header>
+        <img src="~/Content/img/flybynightlogo.png" alt="Fly By Night Bank" />
+        <p>At Fly By Night, we treat your money as if it's our own.</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+            <li><a href="#">Why Fly By Night</a></li>
+            <li>@Html.ActionLink("Compound Interest Calculator", "CompoundInterest", "Calculators")</li>
+            <li>@Html.ActionLink("Credit Card Payoff Calculator", "TimeToPayOff", "Calculators")</li>               
+        </ul>
+    </nav>
+
+    <section id="main">
+
+        @RenderBody()
+
+    </section>
+    <footer>
+        Fly By Night Bank | Varying Locations | sales@flybynightbank.com
+    </footer>
+</body>
+</html>
