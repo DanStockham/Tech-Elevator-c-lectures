@@ -17,13 +17,14 @@ namespace FlyByNightBank.Web.Controllers
         }
 
         // GET: Calculators/CompoundInterestResult?Principal={0}&NumberOfYears={1}&InterestRate={2}
-        public ActionResult CompoundInterestResult(double principal, int numberOfYears, double interestRate)
+        //public ActionResult CompoundInterestResult(double principal, int numberOfYears, double interestRate)
+        public ActionResult CompoundInterestResult(CompoundInterestModel thisObj)
         {
             CompoundInterestModel model = new CompoundInterestModel()
             {
-                Principal = principal,
-                NumberOfYears = numberOfYears,
-                InterestRate = interestRate
+                Principal = thisObj.Principal,
+                NumberOfYears = thisObj.NumberOfYears,
+                InterestRate = thisObj.InterestRate
             };
 
             return View("CompoundInterestResult", model);
