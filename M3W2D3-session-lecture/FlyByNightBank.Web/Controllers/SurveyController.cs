@@ -5,20 +5,18 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Web;
-using System.Web.Configuration;
 using System.Web.Mvc;
 
 namespace FlyByNightBank.Web.Controllers
 {
     public class SurveyController : Controller
     {
-        string connectionString = WebConfigurationManager.ConnectionStrings["FlyByNightBankDB"].ToString();
+        private ISurveyDAL surveyDal;
 
-        SurveySqlDAL surveyDal;
 
-        public SurveyController()
+        public SurveyController(ISurveyDAL surveyDal)
         {
-            surveyDal = new SurveySqlDAL(connectionString);
+            this.surveyDal = surveyDal;
         }
 
         /*
@@ -48,14 +46,16 @@ namespace FlyByNightBank.Web.Controllers
             surveyDal.SaveSurvey(survey);
 
             // Redirect the user to the Confirmation Page
-            //return View();
-            return RedirectToAction("Confirmation", "Survey");
-
+            return RedirectToAction("Confirmation");
         }
 
+        /*
+        * Controller Action used to show the customer the Confirmation view.
+        */
+        // GET: Survey/Confirmation        
         public ActionResult Confirmation()
         {
-            return View();
+            return View("Confirmation");
         }
     }
 }
