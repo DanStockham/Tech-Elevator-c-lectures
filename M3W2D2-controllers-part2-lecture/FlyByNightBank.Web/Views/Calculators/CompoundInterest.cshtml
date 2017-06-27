@@ -19,7 +19,7 @@
         @Html.DropDownListFor(m => m.InterestRate, CompoundInterestModel.InterestRates)
     </div>
     <div class="formInputGroup-radio">
-        @Html.RadioButtonFor(m => m.NumberOfYears, 1,  new { @checked = "checked" }) 1 years
+        @Html.RadioButtonFor(m => m.NumberOfYears, 1, false) 1 years
         @Html.RadioButtonFor(m => m.NumberOfYears, 3, false) 3 years
         @Html.RadioButtonFor(m => m.NumberOfYears, 5, false) 5 years
     </div>

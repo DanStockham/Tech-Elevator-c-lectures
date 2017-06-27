@@ -1,0 +1,31 @@
+﻿@model FlyByNightBank.Web.Models.Calculators.MonthlyPaymentModel
+@{
+    ViewBag.Title = "MonthlyPaymentResult";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>MonthlyPaymentResult</h2>
+
+<section class="result">
+
+    <p>
+        <strong>
+            Loan Amount: @Model.LoanAmount.ToString("C")
+            <br />
+        </strong>
+        <strong>
+            Loan Term (years): @Model.LoanTermInYears.ToString("C")
+            <br />
+        </strong>
+        <strong>
+            Interest Rate: @Model.InterestRate.ToString("0.0")%
+            <br />
+        </strong>
+        <strong>
+            Monthly Payment: @Model.GetMonthlyPayment().ToString("C")
+            <br />
+        </strong>
+ </p>
+
+    <p>@Html.ActionLink("Calculate Another", "MonthlyPayment", "Calculators")</p>
+</section>
