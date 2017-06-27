@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "MonthlyPayment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>MonthlyPayment</h2>
+
+<form action="/Calculators/MonthlyPaymentResult" method="get">
+    <table>
+        <tr>
+            <td>Enter Loan Amount</td>
+            <td><input type="text" id="loanAmount" name="loanAmount" /></td>
+        </tr>
+        <tr>
+            <td>Enter Loan Term In Years</td>
+            <td><input type="text" id="loanTerm" name="loanTerm" /></td>
+        </tr>
+        <tr>
+            <td>Enter Interest Rate</td>
+            <td><input type="text" id="interestRate" name="interestRate" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" /></td>
+        </tr>
+    </table>
+</form>

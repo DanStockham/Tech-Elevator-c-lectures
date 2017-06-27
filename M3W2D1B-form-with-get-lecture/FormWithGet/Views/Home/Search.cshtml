@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+
+@using (Html.BeginForm("Search", "Home", FormMethod.Get))
+{
+    <input type="text" name="q" />
+    <input type="submit" value="Search" />
+}
+
+@if (ViewBag.Response == "")
+{
+    <p>No search result.</p>
+}
+else
+{
+    <p>Search result was @ViewBag.Response</p>
+}

@@ -30,6 +30,8 @@ namespace FlyByNightBank.Web.Controllers
         }
 
 
+
+
         // GET: Calculators/TimeToPayOff
         public ActionResult TimeToPayOff()
         {
@@ -51,19 +53,17 @@ namespace FlyByNightBank.Web.Controllers
         // GET: Calculators/MonthlyPayment
         public ActionResult MonthlyPayment()
         {
-            return View("MonthlyPayment"); 
+            throw new NotImplementedException();
         }
 
         // GET: Calculators/MonthlyPaymentResult
-        public ActionResult MonthlyPaymentResult()
+        public ActionResult MonthlyPaymentResult(MonthlyPaymentModel model)
         {
-            MonthlyPaymentModel monthlyPayment = new MonthlyPaymentModel();
-
-            monthlyPayment.LoanAmount = double.Parse(Request.QueryString["loanAmount"]);
-            monthlyPayment.LoanTermInYears = int.Parse(Request.QueryString["loanTerm"]);
-            monthlyPayment.InterestRate = double.Parse(Request.QueryString["interestRate"]);
-
-            return View("MonthlyPaymentResult", monthlyPayment);
+            throw new NotImplementedException();
         }
+
+
+        
+
     }
 }

@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<form action="/Home/Input" method="get">
+    <table >
+        <tr>
+            <td>Enter First Name</td>
+            <td><input type="text" id="fname_id" name="fname_name" /></td>
+        </tr>
+        <tr>
+            <td>Enter Last Name</td>
+            <td><input type="text" id="lname_id" name="lname_name" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" /></td>
+        </tr>
+    </table>
+</form>
+
+@if (ViewBag.Name == "" )
+{
+    <p>No previous selection.</p>
+}
+else
+{
+    <p>Previous selection was @ViewBag.Name</p>
+}
+
+
+

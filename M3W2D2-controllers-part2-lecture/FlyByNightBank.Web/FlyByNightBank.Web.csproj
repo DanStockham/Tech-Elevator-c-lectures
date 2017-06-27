@@ -106,12 +106,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CalculatorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SurveyController.cs" />
+    <Compile Include="DAL\SurveySqlDAL.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Calculators\CompoundInterestModel.cs" />
     <Compile Include="Models\Calculators\CreditCardPayoffModel.cs" />
     <Compile Include="Models\Calculators\MonthlyPaymentModel.cs" />
+    <Compile Include="Models\Survey.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -123,8 +126,8 @@
     <Content Include="Views\Home\WhyFlyByNight.cshtml" />
     <Content Include="Views\Calculators\TimeToPayOff.cshtml" />
     <Content Include="Views\Calculators\TimeToPayOffResult.cshtml" />
-    <Content Include="Views\Calculators\MonthlyPayment.cshtml" />
-    <Content Include="Views\Calculators\MonthlyPaymentResult.cshtml" />
+    <Content Include="Views\Survey\Index.cshtml" />
+    <Content Include="Views\Survey\Confirmation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -134,7 +137,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="DAL\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
