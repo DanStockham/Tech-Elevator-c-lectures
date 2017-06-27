@@ -4,19 +4,20 @@ using System.Linq;
 using System.Web;
 using FlyByNightBank.Web.Models;
 using System.Data.SqlClient;
+using System.Web.Configuration;
 
 namespace FlyByNightBank.Web.DAL
 {
-    public class SurveySqlDAL : ISurveyDAL
+    public class SurveySqlDAL 
     {
         private string connectionString;
+
         private const string SQL_InsertSurvey = "INSERT INTO customer_surveys VALUES (@customerName, @state, @customer_experience, @additional_feedback, @survey_submitted);";
 
         public SurveySqlDAL(string connectionString)
         {
             this.connectionString = connectionString;
         }
-
 
         public bool SaveSurvey(Survey newSurvey)
         {

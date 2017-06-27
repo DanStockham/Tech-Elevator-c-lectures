@@ -5,21 +5,20 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Mvc;
 
 namespace FlyByNightBank.Web.Controllers
 {
     public class SurveyController : Controller
     {
-        private ISurveyDAL surveyDal;
+        string connectionString = WebConfigurationManager.ConnectionStrings["FlyByNightBankDB"].ToString();
 
-        /*
-        * Our SurveyController relies on an ISurveyDAL to get passed in.
-        * This needs to be set through our Dependency Injection container.
-        */
-        public SurveyController(ISurveyDAL surveyDal)
+        SurveySqlDAL surveyDal;
+
+        public SurveyController()
         {
-            this.surveyDal = surveyDal;
+            surveyDal = new SurveySqlDAL(connectionString);
         }
 
         /*
@@ -49,10 +48,14 @@ namespace FlyByNightBank.Web.Controllers
             surveyDal.SaveSurvey(survey);
 
             // Redirect the user to the Confirmation Page
-            //return View("../Home/Index");
-            return RedirectToAction("Index", "Home")
+            return View();
+            //return RedirectToAction("Confirmation", "Survey");
+
         }
 
-        
+        public ActionResult Confirmation()
+        {
+            return View();
+        }
     }
 }
