@@ -78,7 +78,7 @@ namespace WebApplication3.Controllers
         //GET /Home/Input
         public ActionResult Input()
         {
-            System.Collections.Specialized.NameValueCollection parameters = Url.RequestContext.HttpContext.Request.Params;
+            //System.Collections.Specialized.NameValueCollection parameters = Url.RequestContext.HttpContext.Request.Params;
             string name;
             if ((Request.Params["fname_name"] == null) || (Request.Params["fname_name"] == null))
             {
@@ -96,7 +96,7 @@ namespace WebApplication3.Controllers
         //GET /Home/Search
         public ActionResult Search()
         {
-            System.Collections.Specialized.NameValueCollection parameters = Url.RequestContext.HttpContext.Request.Params;
+            //System.Collections.Specialized.NameValueCollection parameters = Url.RequestContext.HttpContext.Request.Params;
             string response;
             if (Request.Params["q"] == null)
             {
