@@ -48,8 +48,8 @@ namespace FlyByNightBank.Web.Controllers
             surveyDal.SaveSurvey(survey);
 
             // Redirect the user to the Confirmation Page
-            return View();
-            //return RedirectToAction("Confirmation", "Survey");
+            //return View();
+            return RedirectToAction("Confirmation", "Survey");
 
         }
 
