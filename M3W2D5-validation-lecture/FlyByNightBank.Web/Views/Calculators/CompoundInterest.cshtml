@@ -1,0 +1,31 @@
+﻿@using FlyByNightBank.Web.Models.Calculators;
+
+@model FlyByNightBank.Web.Models.Calculators.CompoundInterestModel
+@{
+    ViewBag.Title = "Compound Interest Calculator";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Compound Interest</h2>
+
+@using (Html.BeginForm("CompoundInterestResult", "Calculators", FormMethod.Get))
+{
+    <div class="formInputGroup">
+        @Html.Label("Principal", "Principal Down")
+        @Html.TextBoxFor(m => m.Principal)
+    </div>
+    <div class="formInputGroup">
+        @Html.Label("InterestRate", "Interest Rate")
+        @Html.DropDownListFor(m => m.InterestRate, CompoundInterestModel.InterestRates)
+    </div>
+    <div class="formInputGroup-radio">
+        @Html.RadioButtonFor(m => m.NumberOfYears, 1, false) 1 years
+        @Html.RadioButtonFor(m => m.NumberOfYears, 3, false) 3 years
+        @Html.RadioButtonFor(m => m.NumberOfYears, 5, false) 5 years
+    </div>
+
+
+    <button class="formSubmitButton">CALCULATE!</button>
+
+}
+
