@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Lookup", "Voter", FormMethod.Get))
+{
+    @Html.Label("Please enter a last name"); <br />
+    @Html.TextBox("LastName"); <br />
+    <button>Submit</button>  
+}
+
+@{
+    string message = ViewBag.InformationMessage;
+    ViewBag.InformationMessage = "";
+}
+<p>@message</p>
