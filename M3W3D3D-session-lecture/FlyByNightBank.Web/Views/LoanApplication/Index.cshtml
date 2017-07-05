@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Apply for a Loan</h2>
+
+<p class="center">
+    Check your eligibility (up to $1,000,000) for our Fly By Night Loan program without affecting your credit score. Fill out this quick and
+    easy online application today.
+
+    <br />
+    
+    <a href="@Url.Action("Start", "LoanApplication")">Start the Application</a>
+</p>
+
+@{ 
+    // setup for test of temp data
+    // only set in Index view
+    Session["sessionName2"] = "sessionValue";
+    ViewBag.viewbagName2 = "viewbagValue";
+    ViewData["viewdataName2"] = "viewdataValue";
+    TempData["tempdataName2"] = "tempdataValue";
+}
+

@@ -1,0 +1,27 @@
+﻿@using FlyByNightBank.Web.Models;
+@model LoanApplication
+
+@{
+    ViewBag.Title = "Start";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Personal Information</h2>
+
+@using (Html.BeginForm("Start", "LoanApplication", FormMethod.Post))
+{
+    <div class="formInputGroup">
+        @Html.Label("FirstName", "First Name:")
+        @Html.TextBoxFor(m => m.FirstName)
+    </div>
+    <div class="formInputGroup">
+        @Html.Label("LastName", "Last Name:")
+        @Html.TextBoxFor(m => m.LastName)
+    </div>
+    <div class="formInputGroup">
+        @Html.Label("LogonUserName", "Preferred Logon:")
+        @Html.TextBoxFor(m => m.LogonUsername)
+    </div>
+
+    <button class="formSubmitButton">NEXT</button>
+}

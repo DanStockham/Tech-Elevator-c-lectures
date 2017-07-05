@@ -87,7 +87,9 @@ namespace Voters.DAL
             voter.Id = Convert.ToString(reader["VOTER ID"]);
             voter.LastName = Convert.ToString(reader["LASTNAME"]);
             voter.FirstName = Convert.ToString(reader["FIRSTNAME"]);
+            voter.HouseNumber = Convert.ToString(reader["RES_HOUSE"]);
             voter.StreetName = Convert.ToString(reader["RES_STREET"]);
+            voter.City = Convert.ToString(reader["RES_CITY"]);
             voter.YearOfBirth = Convert.ToString(reader["DATE OF BIRTH"]);
         }
     }

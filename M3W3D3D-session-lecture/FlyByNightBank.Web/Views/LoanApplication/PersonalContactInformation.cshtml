@@ -1,0 +1,35 @@
+﻿@using FlyByNightBank.Web.Models;
+@model LoanApplication
+
+@{
+    ViewBag.Title = "Contact Information";
+    Layout = "~/Views/Shared/_LayoutWithTempData.cshtml";
+}
+
+<h2>Home Contact Information</h2>
+
+@using (Html.BeginForm("PersonalContactInformation", "LoanApplication", FormMethod.Post))
+{
+    <div class="formInputGroup">
+        @Html.Label("HomeAddress", "Address:")
+        @Html.TextBoxFor(m => m.HomeAddress)
+    </div>
+    <div class="formInputGroup">
+        @Html.Label("HomeCity", "City:")
+        @Html.TextBoxFor(m => m.HomeCity)
+    </div>
+    <div class="formInputGroup">
+        @Html.Label("HomeState", "State:")
+        @Html.TextBoxFor(m => m.HomeState)
+    </div>
+    <div class="formInputGroup">
+        @Html.Label("HomePostalCode", "Postal Code:")
+        @Html.TextBoxFor(m => m.HomePostalCode)
+    </div>
+    <div class="formInputGroup">
+        @Html.Label("HomePhone", "Phone:")
+        @Html.TextBoxFor(m => m.HomePhone)
+    </div>
+
+    <button class="formSubmitButton">NEXT</button>
+}
