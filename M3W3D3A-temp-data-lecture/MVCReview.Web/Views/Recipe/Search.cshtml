@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+}
+
+
+
+<div id="search" class="center-block">
+    <h2>Search</h2>
+    @using (Html.BeginForm("SearchResult", "Recipe", FormMethod.Get))
+    {
+            @Html.TextBox("SearchTerm", null, new { @class = "form-control", placeholder = "enter search term here..." })
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+    }
+</div>

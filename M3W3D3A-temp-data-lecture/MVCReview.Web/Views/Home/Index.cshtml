@@ -1,0 +1,56 @@
+﻿@using MVCReview.Web.Models;
+@model List<Recipe>
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<div class="jumbotron">
+    <h2>Welcome to the Recipe Manager</h2>
+    <p class="lead">
+        This simple ASP.NET Web App is built to make managing all of your family recipes
+        easier!
+    </p>
+    <p class="lead">
+        @Html.ActionLink("Create a Recipe Today!", "New", "Recipe", null, new { @class = "btn btn-primary btn-lg" })
+    </p>
+</div>
+
+@if (TempData["StatusMessage"] != null)
+{
+    string message = TempData["StatusMessage"] as string;
+
+    <div class="alert alert-success alert-dismissable fade in">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>@message</strong>
+    </div>                
+}
+
+<div class="container-fluid">
+    <div class="recipes row">
+        <div id="columns" data-columns="">
+            @foreach (Recipe r in Model)
+            {
+                <div class="panel panel-default" style="min-height: 300px;">
+                    <div class="panel-heading">
+                        <h3>@r.Name</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p style="margin-top: 10px;">@r.Description</p>
+                        <a href="@Url.Action("View", "Recipe", new { id = r.Id })">
+                            @if (r.ImageName != null)
+                            {
+                                <img class="img-responsive" src="@Url.Content("~/images/recipe/" + r.ImageName)" alt="@r.Name" />
+                            }
+                            else
+                            {
+                                <img class="img-responsive" src="@Url.Content("~/images/tofurkey.jpg")" alt="@r.Name" />
+                            }
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

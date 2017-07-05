@@ -1,0 +1,50 @@
+﻿@model FlyByNightBank.Web.Models.User
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Register for Fly By Night</h2>
+
+@using (Html.BeginForm("Register", "User", FormMethod.Post))
+{
+    <div class="formValidationGroup">
+        @Html.LabelFor(m => m.FirstName)
+        @Html.TextBoxFor(m => m.FirstName)
+        @Html.ValidationMessageFor(m => m.FirstName)
+    </div>
+    <div class="formValidationGroup">
+        @Html.LabelFor(m => m.LastName)
+        @Html.TextBoxFor(m => m.LastName)
+        @Html.ValidationMessageFor(m => m.LastName)
+    </div>
+    <div class="formValidationGroup">
+        @Html.LabelFor(m => m.Email)
+        @Html.EditorFor(m => m.Email)
+        @Html.ValidationMessageFor(m => m.Email)
+    </div>
+    <div class="formValidationGroup">
+        @Html.LabelFor(m => m.Password)
+        @Html.PasswordFor(m => m.Password)
+        @Html.ValidationMessageFor(m => m.Password)
+    </div>
+    <div class="formValidationGroup">
+        @Html.LabelFor(m => m.ConfirmPassword)
+        @Html.PasswordFor(m => m.ConfirmPassword)
+        @Html.ValidationMessageFor(m => m.ConfirmPassword)
+    </div>
+    <div class="formValidationGroup">
+        @Html.LabelFor(m => m.Birthday)
+        @Html.EditorFor(m => m.Birthday)
+        @Html.ValidationMessageFor(m => m.Birthday)
+    </div>
+    <div class="formValidationGroup">
+        @Html.LabelFor(m => m.Phone)
+        @Html.EditorFor(m => m.Phone)
+        @Html.ValidationMessageFor(m => m.Phone)
+    </div>
+
+    <button class="formSubmitButton">NEXT</button>
+
+}

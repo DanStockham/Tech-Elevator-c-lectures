@@ -1,0 +1,22 @@
+﻿@model FlyByNightBank.Web.Models.Calculators.CreditCardPayoffModel
+
+@{
+    ViewBag.Title = "TimeToPayOfResult";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Time to Payoff Result</h2>
+
+<section class="result">
+
+    <p>
+        Based on what you provided, if you have a balance of <strong>@Model.Balance.ToString("C")</strong>
+        and your monthly payment is <strong>@Model.MonthlyPayment.ToString("C")</strong> at an annual interest rate of 
+        <strong>@Model.APR%</strong> then you will have <strong>@Model.GetNumberOfMonthsToPayoff() months</strong> until it is paid off.
+    </p>
+
+  
+    <p>@Html.ActionLink("Calculate Another", "TimeToPayOff", "Calculators")</p>
+
+</section>
+

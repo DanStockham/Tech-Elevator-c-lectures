@@ -8,7 +8,7 @@ namespace FlyByNightBank.Web.Models
 {
     public class User
     {
-        [Required]
+        [Required(ErrorMessage ="You must enter a first name.")]
         public string FirstName { get; set; }
 
         [Required]

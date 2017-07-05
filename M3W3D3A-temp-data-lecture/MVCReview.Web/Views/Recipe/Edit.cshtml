@@ -1,0 +1,57 @@
+﻿@using MVCReview.Web.Models;
+@model Recipe
+
+@{
+    ViewBag.Title = "New Recipe";
+}
+
+<h2>Edit @Model.Name</h2>
+
+@using (Html.BeginForm("Edit", "Recipe", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "enter the recipe name" })
+        <small class="text-muted form-text">Make sure it's a catchy recipe name.</small>
+    </div>
+
+    <div class="form-group">
+        <label for="description">Description</label>
+        @Html.TextBoxFor(m => m.Description, new { @class = "form-control", placeholder = "Enter a description" })
+        <small class="form-text text-muted">Everyone needs to know what it'll taste like.</small>
+    </div>
+    <div class="form-group">
+        <label for="CulinaryTypeId">Dish Type</label>
+        @Html.DropDownListFor(m => m.CuisineTypeId, Model.CuisineTypes, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label for="cookingTime">Cooking Time (in minutes)</label>
+        @Html.TextBoxFor(m => m.CookingTime, new { @class = "form-control", type = "number" })
+    </div>
+    <div class="form-group">
+        <label for="prepTime">Preparation Type (in minutes)</label>
+        @Html.TextBoxFor(m => m.PrepTime, new { @class = "form-control", type = "number" })
+    </div>
+    <div class="form-group">
+        <label for="exampleInputFile">Pick an image</label>
+        <div>
+            @if (Model.ImageName != null)
+            {
+                <img class="img-thumbnail" width="200" src="@Url.Content("~/images/recipe/" + Model.ImageName)" alt="@Model.Name" />
+            }
+            else
+            {
+                <img class="img-thumbnail" width="200" src="@Url.Content("~/images/tofurkey.jpg")" alt="@Model.Name" />
+            }
+        </div>        
+        @Html.HiddenFor(m => m.ImageName)
+        <input type="file" name="uploadedImage" class="form-control-file" accept=".png, .jpg">
+        <small id="fileHelp" class="form-text text-muted">Upload your favorite image of the recipe.</small>
+    </div>
+    <div class="form-group">
+        <label for="details">Cooking Instructions</label>
+        @Html.TextAreaFor(m => m.Details, new { @class = "form-control", rows = "8" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>    
+}

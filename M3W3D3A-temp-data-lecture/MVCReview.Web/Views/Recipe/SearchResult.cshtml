@@ -1,0 +1,37 @@
+﻿@using MVCReview.Web.Models;
+@model List<Recipe>
+
+@{
+    ViewBag.Title = "SearchResult";
+}
+
+<h2>Here are your search results</h2>
+
+<div class="container-fluid">
+    <div class="recipes row">
+        <div id="columns" data-columns="">
+            @foreach (Recipe r in Model)
+            {
+                <div class="panel panel-default" style="min-height: 300px;">
+                    <div class="panel-heading">
+                        <h3>@r.Name</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p style="margin-top: 10px;">@r.Description</p>
+                        <a href="@Url.Action("View", "Recipe", new { id = r.Id })">
+                            @if (r.ImageName != null)
+                            {
+                                <img class="img-responsive" src="@Url.Content("~/images/recipe/" + r.ImageName)" alt="@r.Name" />
+                            }
+                            else
+                            {
+                                <img class="img-responsive" src="@Url.Content("~/images/tofurkey.jpg")" alt="@r.Name" />
+                            }
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
