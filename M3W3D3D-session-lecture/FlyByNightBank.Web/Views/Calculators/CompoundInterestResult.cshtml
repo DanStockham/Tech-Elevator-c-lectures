@@ -1,0 +1,21 @@
+﻿@model FlyByNightBank.Web.Models.Calculators.CompoundInterestModel
+
+@{
+    ViewBag.Title = "Compound Interest Result";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Compound Interest Result</h2>
+
+<section class="result">
+
+    <p>
+        Based on what you provided, if you put <strong>@Model.Principal.ToString("C")</strong> down
+        as your principal at a rate of <strong>@Model.InterestRate.ToString("0.0")%</strong>
+        for <strong>@Model.NumberOfYears years</strong> then
+    </p>
+
+    <p>You will have <strong>@Model.CalculateAmountSaved().ToString("C")</strong></p>
+
+    <p>@Html.ActionLink("Calculate Another", "CompoundInterest", "Calculators")</p>
+</section>

@@ -1,0 +1,87 @@
+﻿@using FlyByNightBank.Web.Models;
+@model LoanApplication
+
+@{
+    ViewBag.Title = "Confirm";
+    Layout = "~/Views/Shared/_LayoutWithTempData.cshtml";
+}
+
+<h2>Confirm Your Application</h2>
+
+@using (Html.BeginForm("Submit", "LoanApplication", FormMethod.Post))
+{
+    <div class="formInputGroup">
+        @Html.Label("FirstName", "First Name:")
+        <span>@Model.FirstName</span>
+    </div>
+    <div class="formInputGroup">
+        @Html.Label("LastName", "Last Name:")
+        <span>@Model.LastName</span>
+    </div>
+    <div class="formInputGroup">
+        @Html.Label("LogonUserName", "Preferred Logon:")
+        <span>@Model.LogonUsername</span>
+    </div>
+
+    <div class="formInputGroup">
+        @Html.Label("HomeAddress", "Address:")
+        <span>@Model.HomeAddress</span>
+    </div>
+    <div class="formInputGroup">
+        @Html.Label("HomeCity", "City:")
+        <span>@Model.HomeCity</span>
+    </div>
+    <div class="formInputGroup">
+        @Html.Label("HomeState", "State:")
+        <span>@Model.HomeState</span>
+    </div>
+    <div class="formInputGroup">
+        @Html.Label("HomePostalCode", "Postal Code:")
+        <span>@Model.HomePostalCode</span>
+    </div>
+    <div class="formInputGroup">
+        @Html.Label("HomePhone", "Phone:")
+        <span>@Model.HomePhone</span>
+    </div>
+
+    <div class="formInputGroup">
+        @Html.Label("JobTitle", "Job Title (optional):")
+        <span>@Model.JobTitle</span>
+    </div>
+    <div class="formInputGroup">
+        @Html.Label("WorkAddress", "Address (optional):")
+        <span>@Model.WorkAddress</span>
+    </div>
+    <div class="formInputGroup">
+        @Html.Label("WorkCity", "City (optional):")
+        <span>@Model.WorkCity</span>
+    </div>
+    <div class="formInputGroup">
+        @Html.Label("WorkState", "State (optional):")
+        <span>@Model.WorkState</span>
+    </div>
+    <div class="formInputGroup">
+        @Html.Label("WorkPostalCode", "Postal Code (optional):")
+        <span>@Model.WorkPostalCode</span>
+    </div>
+    <div class="formInputGroup">
+        @Html.Label("WorkPhone", "Phone (optional):")
+        <span>@Model.WorkPhone</span>
+    </div>
+
+    <div class="formInputGroup">
+        @Html.Label("NetWorth", "Net Worth:")
+        <span>@Model.NetWorth.ToString("C")</span>
+    </div>
+    <div class="formInputGroup">
+        @Html.Label("Reference1Name", "Name of Reference:")
+        <span>@Model.Reference1Name</span>
+    </div>
+    <div class="formInputGroup">
+        @Html.Label("Reference1Phone", "Phone Number:")
+        <span>@Model.Reference1Phone</span>
+    </div>
+
+
+    <button class="formSubmitButton">SUBMIT</button>
+}

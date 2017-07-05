@@ -1,0 +1,27 @@
+﻿@using FlyByNightBank.Web.Models;
+@model LoanApplication
+
+@{
+    ViewBag.Title = "Financial Information";
+    Layout = "~/Views/Shared/_LayoutWithTempData.cshtml";
+}
+
+<h2>Financial Information</h2>
+
+@using (Html.BeginForm("FinancialInformation", "LoanApplication", FormMethod.Post))
+{
+    <div class="formInputGroup">
+        @Html.Label("NetWorth", "Net Worth:")
+        @Html.TextBoxFor(m => m.NetWorth)
+    </div>
+    <div class="formInputGroup">
+        @Html.Label("Reference1Name", "Name of Reference:")
+        @Html.TextBoxFor(m => m.Reference1Name)
+    </div>
+    <div class="formInputGroup">
+        @Html.Label("Reference1Phone", "Phone Number:")
+        @Html.TextBoxFor(m => m.Reference1Phone)
+    </div>
+
+    <button class="formSubmitButton">NEXT</button>
+}

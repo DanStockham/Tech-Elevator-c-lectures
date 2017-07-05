@@ -1,0 +1,31 @@
+﻿@using FlyByNightBank.Web.Models;
+@model FlyByNightBank.Web.Models.Survey
+
+@{
+    ViewBag.Title = "Customer Appreciation Survey";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customer Appreciation Survey</h2>
+
+@using (Html.BeginForm("Index", "Survey", FormMethod.Post))
+{
+    <div class="formInputGroup">
+        @Html.Label("CustomerName", "Name (optional):")
+        @Html.TextBoxFor(m => m.CustomerName)
+    </div>
+    <div class="formInputGroup">
+        @Html.Label("State", "State")
+        @Html.DropDownListFor(m => m.State, Survey.States)
+    </div>
+    <div class="formInputGroup">
+        @Html.Label("CustomerExperienceLevel", "Satisfaction Score")
+        @Html.DropDownListFor(m => m.CustomerExperienceLevel, Survey.SurveyAppreciationLevels)
+    </div>
+    <div class="formInputGroup">
+        @Html.Label("AdditionalFeedback", "Feedback (optional):")
+        @Html.TextAreaFor(m => m.AdditionalFeedback)
+    </div>
+
+    <button class="formSubmitButton">SUBMIT!</button>
+}
