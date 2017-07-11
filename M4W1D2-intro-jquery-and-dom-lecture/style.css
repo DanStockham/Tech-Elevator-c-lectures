@@ -1,0 +1,46 @@
+h1 {
+    font-size: 2em;
+}
+
+.box {
+    height: 180px;
+    width: 300px;
+    border-radius: 5px;
+    padding: 2px 5px;
+    margin: 10px;
+}
+
+.red {
+    background-color: #ea4335;
+}
+
+.green {
+    background-color: #34a853;
+}
+
+.blue {
+    background-color: #4285F4;
+}
+
+.yellow {
+    background-color: #FBBC05;
+}
+
+.black {
+    background-color: #000;
+    color: #FFF;
+}
+
+.grey {
+    background-color: #808080;
+}
+
+
+
+.border {
+    border: 1px dotted red;
+}
+
+.special {
+    font-weight: bold;
+}
