@@ -22,7 +22,8 @@ namespace FlyByNightBank.UITests.PageObjects
             PageFactory.InitElements(driver, this);
         }
 
-        [FindsBy(How = How.Name, Using = "Principal")]
+
+        [FindsBy(How = How.Name Using = "Principal")]
         public IWebElement Principal { get; set; }
 
         [FindsBy(How = How.Name, Using = "InterestRate")]
