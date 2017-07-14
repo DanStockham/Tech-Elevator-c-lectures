@@ -9,8 +9,8 @@ label {
 
 label.error {
     color: red;
-    /*background:url(Red_x.png) no-repeat 0px 0px;
+    background:url(Red_x.png) no-repeat 0px 0px;
     background-size: 15px;
     padding-left:15px;
-    margin-left: 5px;*/ /*uncomment when ready */
+    margin-left: 5px; /*uncomment when ready */
 }

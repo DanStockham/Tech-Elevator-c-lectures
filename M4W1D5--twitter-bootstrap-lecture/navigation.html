@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap Navigation Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  
+  <style>
+
+	div.row div:nth-child(1) {
+		background-color: lavender;
+		border: 1px solid black;
+	}
+	div.row div:nth-child(2) {
+		background-color: #B0E0E6;
+		border: 1px solid black;
+	}
+	
+
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+<!-- <nav class="navbar navbar-inverse"> -->
+	<!-- <div> -->
+	<div class="container-fluid">
+	
+		<ul class="nav navbar-nav">
+			<li class="active"><a href="#">Home</a></li>
+			<li><a href="#">Why Us?</a></li>
+			<li><a href="#">Contact Us</a></li>
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+			<li><a href="#">Sign Up</a></li>
+			<li><a href="#">Log In</a></li>
+		</ul>
+	</div>
+</nav>
+
+    
+
+
+<div class="container">
+	<h3>Example of a Navigation Bar</h3>
+	<p>Try altering the Navigation Bar. 
+		<ul>
+		<li>Change the active class on the <code>li</code> tags.</li>
+		<li>Change the <code>container-fluid</code> class.</li>
+		<li>Change the <code>navbar-default</code> to <code>navbar-inverse</code></li>
+	</p>
+</div>
+
+
+</body>
+</html>
