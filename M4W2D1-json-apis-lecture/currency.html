@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Currency from  from Weather Underground</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale: 1" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="currency.js"></script>
+</head>
+<body>
+
+    <div class="container">
+		<div class="row">
+			Convert U.S. Dollars to Other Currencies<br />
+			<a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3#Current_codes" target="_blank">
+			List of Country Codes</a>
+		</div>
+		<div class="row">
+			Amount: 
+			<input type="text" id="amount" />
+			<br />
+		</div>
+		<div class="row">
+			Country:
+			 <input type="text" id="code" />
+			 <br />
+		</div>
+		<div class="row">
+			<button id="btnCurrency" class="btn btn-success">GET CONVERTED AMOUNT</button>
+			</div>
+		</div>
+	</div>
+
+    <div class="container">	
+		<ul id="result">
+		</ul>
+    </div>
+
+	<div id="list" class="container">
+		<div>U.S. Dollar Exchange Rates</div>
+	</div>
+
+</body>
+</html>
