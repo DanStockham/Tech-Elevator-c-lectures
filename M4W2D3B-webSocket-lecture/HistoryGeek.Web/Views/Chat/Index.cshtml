@@ -1,0 +1,38 @@
+﻿@using HistoryGeek.Web.Models;
+@model List<ChatMessage>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/exercises/websocket-exercises.js"></script>
+
+<div id="chatroom">
+
+    <div id="messages">
+        <h3>History</h3>
+        <!-- Messages go here -->
+        <div id="history">
+            @foreach (var message in Model)
+            {
+                <p class="message">
+                    <span class="username">@message.Username</span> <span class="time">@message.SentDate.ToShortTimeString()</span> <br />
+                    @message.Message
+                </p>
+            }
+        </div>
+        <div id="newMessageForm">
+            @using (Html.BeginForm("Index", "Chat", FormMethod.Post))
+            {                
+                @Html.TextArea("message", new { placeholder = "message" })
+                <button>SEND</button>
+            }
+        </div>
+    </div>
+    <div id="members">
+        <h3>Active Members</h3>
+        <!-- Members List goes here -->
+        <ul>            
+        </ul>
+    </div>
+</div>
+

@@ -1,0 +1,53 @@
+﻿@model HistoryGeek.Web.Models.Order
+@{
+    ViewBag.Title = "Checkout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Complete your checkout</h2>
+<div id="errorSummary">
+    <h3>You have the following errors: </h3>
+    <ul id="errors"></ul>
+</div>
+@using (Html.BeginForm("Checkout", "Store", FormMethod.Post, new { id = "checkout" }))
+{
+    
+    <fieldset id="billing-info">
+        <h3>Billing Address</h3>
+        @Html.TextBoxFor(m => m.BillingAddress1, new { placeholder = "address" })
+        @Html.TextBoxFor(m => m.BillingAddress2, new { placeholder = "apt., suite, company" })
+        @Html.TextBoxFor(m => m.BillingCity, new { placeholder = "city" })
+        @Html.TextBoxFor(m => m.BillingState, new { placeholder = "state" })
+        @Html.TextBoxFor(m => m.BillingPostalCode, new { placeholder = "zip code" })
+        @Html.CheckBox("SameShipping")<label>My shipping address is the same</label>
+        <h3>Shipping Address</h3>
+        @Html.TextBoxFor(m => m.ShippingAddress1, new { placeholder = "address" })
+        @Html.TextBoxFor(m => m.ShippingAddress2, new { placeholder = "apt., suite, company" })
+        @Html.TextBoxFor(m => m.ShippingCity, new { placeholder = "city" })
+        @Html.TextBoxFor(m => m.ShippingState, new { placeholder = "state" })
+        @Html.TextBoxFor(m => m.ShippingPostalCode, new { placeholder = "zip code" })
+    </fieldset>
+    <fieldset id="shipping-info">
+        <h3>Shipping Method</h3>
+        <p>@Html.RadioButtonFor(m => m.ShippingType, "Standard", new { data_cost = Model.ShippingRates["Standard"].ToString("C") }) <label>Standard Shipping: @Model.ShippingRates["Standard"].ToString("C")</label></p>
+        <p>@Html.RadioButtonFor(m => m.ShippingType, "Express", new { data_cost = Model.ShippingRates["Express"].ToString("C") }) <label>Express Shipping: @Model.ShippingRates["Express"].ToString("C")</label></p>
+        <p>@Html.RadioButtonFor(m => m.ShippingType, "Two-Day", new { data_cost = Model.ShippingRates["Two-Day"].ToString("C") }) <label>Two-Day Shipping: @Model.ShippingRates["Two-Day"].ToString("C")</label></p>        
+        <p>@Html.RadioButtonFor(m => m.ShippingType, "Overnight", new { data_cost = Model.ShippingRates["Overnight"].ToString("C") }) <label>Overnight Shipping: @Model.ShippingRates["Overnight"].ToString("C")</label></p>        
+    </fieldset>
+    <fieldset id="payment-info">
+        <h3>Payment</h3>
+        @Html.TextBoxFor(m => m.NameOnCard, new { placeholder = "name on card" })
+        @Html.TextBoxFor(m => m.CreditCardNumber, new { placeholder = "credit card" })
+        @Html.TextBoxFor(m => m.ExpirationDate, new { placeholder = "mm/yy" })
+    </fieldset>
+    <fieldset id="order-summary">
+        <h3>Summary</h3>
+        <p id="subtotal" class="attribute">Subtotal: <span class="price">@Model.SubTotal.ToString("C")</span></p>
+        <p id="tax" class="attribute">Tax: <span class="price">@(Model.Tax.HasValue ? Model.Tax.Value.ToString("C") : "$-.--")</span></p>
+        <p id="shipping" class="attribute">Shipping: <span class="price">@(Model.Shipping.HasValue ? Model.Shipping.Value.ToString("C") : "$-.--")</span></p>
+        <p id="grandtotal" class="attribute">Grand Total: <span class="price">@((Model.Shipping.HasValue && Model.Tax.HasValue) ? (Model.SubTotal + Model.Tax.Value + Model.Shipping.Value).ToString("C") : "$-.--")</span></p>
+        <button>Complete Order</button>
+    </fieldset>
+
+}
+

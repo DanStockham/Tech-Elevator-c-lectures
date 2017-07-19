@@ -1,0 +1,69 @@
+﻿@model HistoryGeek.Web.Models.ShoppingCart
+@{
+    ViewBag.Title = "ViewCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    IEnumerable<SelectListItem> quantities = new List<SelectListItem>()
+    {
+        new SelectListItem { Text = "1", Value = "1" },
+        new SelectListItem { Text = "2", Value = "2" },
+        new SelectListItem { Text = "3", Value = "3" },
+        new SelectListItem { Text = "4", Value = "4" },
+        new SelectListItem { Text = "5", Value = "5" },
+        new SelectListItem { Text = "6", Value = "6" },
+    };
+}
+
+<div id="shopping-cart">
+
+    @if (Model.Items.Count == 0)
+    {
+        <h3>Your Shopping Cart is empty.</h3>
+    }
+    else
+    {
+        <table>
+            <thead>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Price</td>
+                    <td>Quantity</td>
+                    <td>Subtotal</td>
+                </tr>
+            </thead>
+            @foreach (var cartItem in Model.Items)
+            {
+                <tr>
+                    <td class="image">
+                        <img src="@Url.Content("~/Content/images/products/" + cartItem.Product.ImageName)" />
+                    </td>
+                    <td class="title">
+                        <h3>@Html.ActionLink(cartItem.Product.Name, "Detail", "Store", new { id = cartItem.Product.SKU })</h3>
+                    </td>
+                    <td class="price">
+                        @cartItem.Product.Price.ToString("C")
+                    </td>
+                    <td class="quantity">
+                        @using (Html.BeginForm("UpdateCart", "Store", FormMethod.Post))
+                        {
+                            @Html.Hidden("SKU", cartItem.Product.SKU)
+                            @Html.TextBox("Quantity", cartItem.Quantity, new { type = "number" })
+                            <button>Update Cart</button>
+                        }
+                    </td>
+                    <td class="subtotal">
+                        @cartItem.Price.ToString("C")
+                    </td>
+                </tr>
+
+            }
+            <tr>
+                <td colspan="5">
+                    <p>Total: <span class="price">@Model.SubTotal.ToString("C")</span></p>
+                    @Html.ActionLink("Checkout", "Checkout", "Store", null, new { @class = "button" })
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+
