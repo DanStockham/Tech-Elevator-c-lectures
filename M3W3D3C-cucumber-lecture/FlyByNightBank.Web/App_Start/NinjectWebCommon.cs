@@ -10,8 +10,6 @@ namespace FlyByNightBank.Web.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
-    using DAL;
-    using System.Configuration;
 
     public static class NinjectWebCommon 
     {
@@ -63,8 +61,6 @@ namespace FlyByNightBank.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<ISurveyDAL>().To<SurveySqlDAL>().WithConstructorArgument("connectionString", ConfigurationManager.ConnectionStrings["FlyByNightBankDB"].ConnectionString);
-            kernel.Bind<IApplicationDAL>().To<ApplicationSqlDAL>().WithConstructorArgument("connectionString", ConfigurationManager.ConnectionStrings["FlyByNightBankDB"].ConnectionString);
         }        
     }
 }

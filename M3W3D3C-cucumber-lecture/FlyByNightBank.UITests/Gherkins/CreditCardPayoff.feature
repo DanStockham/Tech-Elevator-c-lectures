@@ -16,6 +16,7 @@ Scenario Outline: Calculate Credit Card Payoff
 	Then I should see the payoff page that shows me it takes <months> to pay off
 
 	Examples: 
-	| apr | balance  | monthly payment | months			|
-	| 2.5 | 25000.00 | 150.00          | 205 months		|
-	| 3.0 | 10000    | 124.24          | 90 months		|
+	| apr | balance  | monthly payment | months     |
+	| 2.5 | 25000.00 | 150.00          | 205 months |
+	| 3.0 | 10000    | 124.24          | 90 months  |
+	| 4.0 | 50000    | 450.00          | 139 months |

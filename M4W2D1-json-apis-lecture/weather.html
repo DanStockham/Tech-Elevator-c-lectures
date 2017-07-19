@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather from Weather Underground</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale: 1" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="weather.js"></script>
+</head>
+<body>
+
+    <div class="container">
+	<div class="row">
+		City: 
+        <input type="text" id="city" />
+		<br />
+	</div>
+	<div class="row">
+		State:
+		 <input type="text" id="state" />
+		 <br />
+	</div>
+	<div class="row">
+        <button id="btnWeather" class="btn btn-success">GET WEATHER</button>
+		</div>
+    </div>
+
+    <div class="container">
+        <p id="conditions"></p>
+    </div>
+
+</body>
+</html>
