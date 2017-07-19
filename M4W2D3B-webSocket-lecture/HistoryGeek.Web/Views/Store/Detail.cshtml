@@ -1,0 +1,42 @@
+﻿@model HistoryGeek.Web.Models.Product
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    IEnumerable<SelectListItem> quantities = new List<SelectListItem>()
+    {        
+        new SelectListItem { Text = "1", Value = "1" },
+        new SelectListItem { Text = "2", Value = "2" },
+        new SelectListItem { Text = "3", Value = "3" },
+        new SelectListItem { Text = "4", Value = "4" },
+        new SelectListItem { Text = "5", Value = "5" },
+        new SelectListItem { Text = "6", Value = "6" },
+    };
+}
+
+<div id="product-detail">
+    <div class="product-image">
+        <img src="@Url.Content("~/Content/images/products/" + Model.ImageName)" title="@Model.Name" />
+    </div>
+    <div class="product-data">
+        <h3>@Model.Name</h3>
+        <p class="attribute">List Price: <span class="price">@Model.Price.ToString("C")</span></p>
+        @if (Model.Weight < 16.0)
+        {
+            <p class="attribute">Weight: <span class="weight">@Model.Weight oz.</span></p>
+        }
+        else
+        {
+            <p class="attribute">Weight: <span class="weight">@Model.Pounds lb @Model.Ounces oz</span></p>
+        }
+        <p class="description">@Model.Description</p>
+    </div>
+
+    @using (Html.BeginForm("AddToCart", "Store", FormMethod.Post))
+    {
+        @Html.HiddenFor(m => m.SKU)
+        <div>            
+            @Html.DropDownList("Quantity", quantities)            
+        </div>
+        <button>Add To Cart</button>
+    }
+</div>

@@ -1,0 +1,51 @@
+﻿@model int
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="game">
+    <h2>Pirate Explorer </h2>
+    <button id="btnRestart">Restart</button>
+
+    <table id="gameboard">
+
+        @for (int row = 0; row < Model; row++)
+        {
+            string rowId = $"row_{row}";
+            <tr id="@rowId" class="gamerow">
+                
+                @for (int column = 0; column < Model; column++)
+                {
+                    string cellId = $"row_{row}_column_{column}";
+                    string cellClass = "gamecell";
+                    if(column == 0 && row == 0)
+                    {
+                        cellClass += " ship";
+                    }
+                    else if ( column == Model - 1 && row == Model - 1)
+                    {
+                        cellClass += " treasure";
+                    }
+                    else
+                    {
+                        if (((row*column) + (column+1)) % 7 == 0)
+                        {
+                            cellClass += " iceberg";
+                        }
+                        else if (((row * column) + (column + 1)) % 13 == 0)
+                        {
+                            cellClass += " pirate";
+                        }
+                    }
+                    <td id="@cellId" class="@cellClass"></td>
+                }
+            </tr>
+        }
+
+    </table>
+
+</div>
+
+
+

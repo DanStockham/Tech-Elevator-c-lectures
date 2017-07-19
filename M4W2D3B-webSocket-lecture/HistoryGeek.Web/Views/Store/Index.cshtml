@@ -1,0 +1,20 @@
+﻿@model List<HistoryGeek.Web.Models.Product>
+@{
+    ViewBag.Title = "Store";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Gift Shop</h2>
+
+<div id="products">
+    @foreach (var product in Model)
+    {
+        <div class="product-card">
+            <a href="@Url.Action("Detail", "Store", new { id = product.SKU })"><img src="@Url.Content("~/Content/images/products/" + product.ImageName)" /></a>
+            <a class="name" href="@Url.Action("Detail", "Store", new { id = product.SKU })">
+                @product.Name
+            </a>
+            <p class="price">@product.Price.ToString("C")</p>
+        </div>
+    }
+</div>

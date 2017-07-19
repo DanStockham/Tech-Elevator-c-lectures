@@ -1,0 +1,50 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>History Geek - @ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/b6042e8b1f.js"></script>
+    <script src="~/Scripts/jquery-3.1.1.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.2.1.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/additional-methods.min.js"></script>
+    <!-- BOOTSTRAPPER -->
+    <script src="~/Scripts/setup/bootstrapper.js"></script>
+
+    <!-- EXERCISES -->
+    <script src="~/Scripts/exercises/dom-exercises.js"></script>
+    <script src="~/Scripts/exercises/event-exerises.js"></script>
+    <script src="~/Scripts/exercises/validation-exercises.js"></script>
+    <script src="~/Scripts/exercises/api-exercises.js"></script>
+</head>
+<body>
+    <header>
+        <img src="~/Content/images/geek.png" />
+        <h1>
+            History Geek
+            
+        </h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li>@Html.ActionLink("US Presidents", "USPresidents", "Home")</li>   
+            <li>@Html.ActionLink("Store", "Index", "Store")</li>
+            <li>@Html.ActionLink("Game", "Index", "Game")</li>
+            @Html.Action("Navigation", "User")                       
+        </ul>
+    </nav>
+    <main>
+        @RenderBody()
+    </main>
+    <footer>
+        <p>Tech Elevator &copy; @DateTime.Now.Year</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,21 @@
+﻿@model HistoryGeek.Web.Models.ViewModels.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="login">
+    <h2>Login</h2>
+    @using (Html.BeginForm("Login", "User", FormMethod.Post))
+    {
+        <div>
+            @Html.TextBoxFor(m => m.EmailAddress, new { placeholder = "email" })
+            @Html.ValidationMessageFor(m => m.EmailAddress)
+        </div>
+        <div>
+            @Html.PasswordFor(m => m.Password, new { placeholder = "password" })
+            @Html.ValidationMessageFor(m => m.Password)
+        </div>
+        <button>Login</button>
+    }
+</div>

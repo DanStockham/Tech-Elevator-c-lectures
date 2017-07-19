@@ -1,0 +1,126 @@
+﻿@model HistoryGeek.Web.Models.ViewModels.ConfirmationViewModel
+@{
+    ViewBag.Title = "Confirm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div id="confirmation-page">
+
+    <h2>Thank you for your order</h2>
+    <p>Your items will be shipping soon.</p>
+
+    <div id="order-data">
+        <div id="shipping-info">
+            <h4>Shipping Address</h4>
+            <p>
+                @Model.Order.NameOnCard <br />
+                @Model.Order.ShippingAddress1 <br />
+                @if (!String.IsNullOrEmpty(Model.Order.ShippingAddress2))
+                {
+                    @Model.Order.ShippingAddress2 <br />
+                }
+                @Model.Order.ShippingCity, @Model.Order.ShippingState @Model.Order.ShippingPostalCode
+            </p>
+        </div>
+        <div id="payment-info">
+            <h4>Payment Info</h4>
+            <p>**** @Model.Order.CreditCardNumber.Substring(Model.Order.CreditCardNumber.Length - 4)</p>
+        </div>
+        <div id="order-summary">
+            <h4>Order Summary</h4>
+            <div class="row">
+                <span class="left">Item(s) Subtotal:</span> <span class="right">@Model.Order.SubTotal.ToString("C")</span>
+            </div>
+            <div class="row">
+                <span class="left">Shipping &amp; Handling:</span> <span class="right">@Model.Order.Shipping.Value.ToString("C")</span>
+            </div>
+            <div class="row">
+                <span class="left">Tax:</span> <span class="right">@Model.Order.Tax.Value.ToString("C")</span>
+            </div>
+            <div class="row">
+                <span class="left">Grand Total:</span> <span class="right">@((Model.Order.SubTotal + Model.Order.Tax.Value + Model.Order.Shipping.Value).ToString("C"))</span>
+            </div>
+            <p>@Html.ActionLink("Continue Shopping", "Index", "Store")</p>
+        </div>
+    </div>
+    <div id="order-items">
+        @foreach (var item in Model.OrderItems)
+        {
+            var product = Model.Products.First(p => p.Id == item.ProductId);
+            <div class="order-item">
+                <div class="product-image">
+                    <img src="@Url.Content("~/Content/images/products/" + product.ImageName)" />
+                </div>
+                <div class="product-data">
+                    @Html.ActionLink(product.Name, "Detail", "Store", new { id = product.SKU }, new { @class = "name" })
+                    <span class="price">@product.Price.ToString("C")</span>
+                    <span>Qty: @item.Quantity</span>
+                    @using (Html.BeginForm("AddToCart", "Store", new { sku = product.SKU, quantity = 1 }, FormMethod.Post, null))
+                    {
+                        <button>Buy again</button>
+                    }
+                </div>
+                <div class="product-actions">
+                    <button>Track package</button>
+                    <button>Return or replace item</button>
+                    <button>Get help with order</button>
+                </div>
+            </div>
+        }
+    </div>
+
+    @*<div id="order-items">
+            <h4>Items You Ordered</h4>
+            <p>Order Id: @Model.Order.Id</p>
+            <table>
+                <thead>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>Price</td>
+                        <td>Qty</td>
+                        <td>Subtotal</td>
+                    </tr>
+                </thead>
+                @foreach (var item in Model.OrderItems)
+                {
+                    var product = Model.Products.First(p => p.Id == item.ProductId);
+                    <tr>
+                        <td class="image">
+                            <img src="@Url.Content("~/Content/images/products/" + product.ImageName)" />
+                        </td>
+                        <td class="title">
+                            <h3>@Html.ActionLink(product.Name, "Detail", "Store", new { id = product.SKU })</h3>
+                        </td>
+                        <td class="price">
+                            @product.Price.ToString("C")
+                        </td>
+                        <td class="quantity">
+                            @item.Quantity
+                        </td>
+                        <td class="subtotal">
+                            @item.Price.ToString("C")
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <div id="order-details">
+            <h4>Billing Address</h4>
+            <p>
+                @Model.Order.NameOnCard <br />
+                @Model.Order.BillingAddress1 <br />
+                @if (!String.IsNullOrEmpty(Model.Order.BillingAddress2))
+                {
+                    @Model.Order.BillingAddress2 <br />
+                }
+                @Model.Order.BillingCity, @Model.Order.BillingState @Model.Order.BillingPostalCode
+            </p>
+            <h4>Shipping Address</h4>
+
+        </div>*@
+
+
+</div>
