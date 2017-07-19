@@ -70,7 +70,7 @@ create table chat_history
 (
 	id int identity(1,1),
 	userId int not null,
-	messaage varchar(max) not null,
+	message varchar(max) not null,
 	sentDate datetime not null default(getdate()),
 
 	constraint fk_chat_history_users foreign key (userId) references users(id)
