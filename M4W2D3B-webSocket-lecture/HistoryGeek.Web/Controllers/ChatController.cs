@@ -67,6 +67,7 @@ namespace HistoryGeek.Web.Controllers
                     type = "newmessage",
                     values = chatMessage
                 };
+
                 chatConnectionContext.Connection.Broadcast(broadcastMessage);
             }
 
