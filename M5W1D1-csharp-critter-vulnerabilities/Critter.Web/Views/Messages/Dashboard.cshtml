@@ -12,7 +12,7 @@
     {
         <li id="conversation_@conversation.WithUser" class="message">
             <span class="username">@Html.ActionLink(conversation.WithUser, "GetConversationThread", "Messages", new { forUser = conversation.ForUser, withUser = conversation.WithUser }, null)</span>
-            <span class="message-text">@conversation.Messages[0].MessageText</span>
+            <span class="message-text">@Html.Raw(@conversation.Messages[0].MessageText)</span>
             <time class="timeago timestamp" datetime="@conversation.Messages[0].CreatedDate.ToString("o")">@conversation.Messages[0].CreatedDate.TimeAgo()</time>
         </li>
     }

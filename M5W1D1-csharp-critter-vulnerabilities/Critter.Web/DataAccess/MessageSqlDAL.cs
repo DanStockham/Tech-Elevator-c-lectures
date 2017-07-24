@@ -424,11 +424,11 @@ namespace Critter.Web.DataAccess
                 string sql;
                 if (sinceDate == DateTime.MinValue)
                 {
-                    sql = $"SELECT * FROM message WHERE sender_name = '{username}' AND private = 0 ORDER BY create_date DESC";
+                    sql = $"SELECT * FROM message WHERE sender_name = @username AND private = 0 ORDER BY create_date DESC";
                 }
                 else
                 {
-                    sql = $"SELECT * FROM message WHERE sender_name = '{username}' AND create_date > '{sinceDate.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss.fff")}' AND private = 0 ORDER BY create_date DESC";
+                    sql = $"SELECT * FROM message WHERE sender_name = @username AND create_date > '{sinceDate.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss.fff")}' AND private = 0 ORDER BY create_date DESC";
                 }
 
                 using (SqlConnection conn = new SqlConnection(databaseConnectionString))
@@ -436,6 +436,8 @@ namespace Critter.Web.DataAccess
                     conn.Open();
 
                     SqlCommand cmd = new SqlCommand(sql, conn);
+                    
+                    cmd.Parameters.AddWithValue("@username", username);
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
