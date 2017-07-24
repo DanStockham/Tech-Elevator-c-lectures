@@ -15,7 +15,7 @@
             {
                 <span class="message-text">
                     <span>@Html.ActionLink("@" + message.Recipient, "GetConversationThread", "Messages", new { forUser = message.Recipient, withUser = message.Sender }, null)</span>
-                    @message.MessageText
+                    @Html.Raw(@message.MessageText)
                 </span>
             }
             else
