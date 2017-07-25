@@ -6,9 +6,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Critter.Web.Filters;
+using System.Net;
 
 namespace Critter.Web.Controllers
-{
+{    
     public class MessagesController : CritterController
     {
         private readonly IMessageDAL messageDal;
@@ -21,6 +23,7 @@ namespace Critter.Web.Controllers
 
 
         [Route("users/{username}/dashboard")]
+        [CritterAuthorizationFilter]
         public ActionResult Dashboard(string username)
         {
             var conversations = messageDal.GetConversations(username);
@@ -28,6 +31,7 @@ namespace Critter.Web.Controllers
         }
 
         [Route("users/{forUser}/conversations/{withUser}")]
+        [CritterAuthorizationFilter]
         public ActionResult GetConversationThread(string forUser, string withUser)
         {
             var conversationThread = messageDal.GetConversations(forUser, withUser);
@@ -37,6 +41,7 @@ namespace Critter.Web.Controllers
 
 
         [Route("users/{username}/messages")]
+        [CritterAuthorizationFilter]
         public ActionResult SentMessages(string username)
         {
             var messages = messageDal.GetAllSentMessageForUser(username);
@@ -48,22 +53,17 @@ namespace Critter.Web.Controllers
         public ActionResult NewMessage()
         {
             var model = new NewMessageViewModel();
-            model.SessionId = Session.SessionID;
             return View("NewMessage", model);
         }
 
         [HttpPost]
         [Route("users/{username}/messages/new")]
+        [ValidateAntiForgeryToken]
         public ActionResult NewMessage(string username, NewMessageViewModel model)
         {
             if (!ModelState.IsValid)
             {
                 return View("NewMessage", model);
-            }
-
-            if (model.SessionId != Session.SessionID)
-            {
-                return RedirectToAction("Login", "Users");
             }
 
             var message = new Message
@@ -81,6 +81,7 @@ namespace Critter.Web.Controllers
 
         [HttpGet]
         [Route("users/{username}/messages/{messageId}/delete")]
+        [CritterAuthorizationFilter]
         public ActionResult DeleteMessage(int messageId, string username)
         {
             var message = messageDal.GetMessage(messageId);
@@ -91,11 +92,17 @@ namespace Critter.Web.Controllers
                 return new HttpNotFoundResult();
             }
 
+            if(message.Sender.ToLower() != username.ToLower())
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+            }
+
             return View("DeleteMessage", message);
         }
 
         [HttpPost]
         [Route("users/{username}/messages/{messageId}/delete")]
+        [CritterAuthorizationFilter]
         public ActionResult DeleteMessage(string username, Message model)
         {
             var message = messageDal.GetMessage(model.MessageId);
@@ -103,6 +110,10 @@ namespace Critter.Web.Controllers
             if (message == null)
             {
                 return new HttpNotFoundResult();
+            }
+            if(message.Sender.ToLower() != username.ToLower())
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
             }
 
             messageDal.DeleteMessage(model.MessageId);
