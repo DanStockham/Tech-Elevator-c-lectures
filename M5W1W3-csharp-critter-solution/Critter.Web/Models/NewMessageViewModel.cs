@@ -17,6 +17,5 @@ namespace Critter.Web.Models
         [Required]
         [MaxLength(140)]
         public string MessageText { get; set; }
-        public string SessionId { get; set; }
     }
 }
