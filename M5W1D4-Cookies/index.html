@@ -1,0 +1,102 @@
+<html>
+
+	<head>
+		<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+	</head>
+	<body>
+
+		Name: <input type="text" id="name"> <br />
+		Value: <input type="text" id="value"> <br />
+		
+		<input type="button" id="save" value="Save">
+		<input type="button" id="readall" value="Read All">
+        <input type="button" id="readspecific" value="Read Specific">
+        <input type="button" id="erase" value="Erase">
+		<br />
+
+		Result: 
+		<span id ="result"> </span>
+		
+		<script>
+			$(document).ready(function() {
+				console.log( "ready!" );
+				
+				$( "#save" ).click(function() {
+					//alert( "Handler for .click() called." );
+					WriteCookie();	
+				});
+
+				$( "#readall" ).click(function() {
+					//alert( "Handler for .click() called." );
+					ReadCookie();
+                });
+
+                $("#readspecific").click(function () {
+                    //alert( "Handler for .click() called." );
+                    GetSpecificValue();
+                });
+
+                $("#erase").click(function () {
+                    //alert("Handler for .click() called.");
+                    EraseCookie();
+                });
+			});
+		
+			function WriteCookie(){
+                var result = $("#name").val() + "=" + $("#value").val();
+                result += "; expires=" + OneWeek();
+                result += "; path = /;";
+				document.cookie = result;
+			}
+				
+			function ReadCookie(){
+                if (document.cookie != null) {
+                    var result = document.cookie;
+                    $("#result").text(result);
+                }
+            }
+
+            function GetSpecificValue() {
+                if (document.cookie != null) {
+                    var parameter = $("#name").val() ;
+                    var result = GetCookie(parameter)
+                    $("#result").text(result);
+                }
+            }
+
+
+            function EraseCookie(){
+                var result = $("#name").val() + "=";
+                document.cookie = result + "expires=Thu, 01 Jan 1953 00:00:00 UTC; path=/;";
+            }
+
+            function GetCookie(cname) {
+                // https://www.w3schools.com/js/js_cookies.asp
+                var name = cname + "=";
+                var ca = document.cookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+
+            function OneWeek() {
+                // from: http://stackoverflow.com/questions/13154552/javascript-set-cookie-with-expire-time
+                var when = new Date();
+                var time = when.getTime();
+                var expireTime = time + 7 * 24 * 60 * 60 * 1000;
+                when.setTime(expireTime);
+                return when;
+            }
+
+		
+		</script>
+	</body>
+</html>;
+
