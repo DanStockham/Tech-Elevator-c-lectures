@@ -1,0 +1,16 @@
+Wikipedia
+https://en.wikipedia.org/wiki/HTTP_cookie
+
+JavaScript Tutorial
+https://www.w3schools.com/js/js_cookies.asp
+
+More advanced cookie notes for JavaScript
+https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie
+
+ASP .NET Cookies Overview
+https://msdn.microsoft.com/en-us/library/ms178194.aspx
+
+Cookies in ASP.NET
+https://www.codeproject.com/Articles/244904/Cookies-in-ASP-NET
+
+
